@@ -117,6 +117,7 @@ Supposing you are using a server which provides everything, like TronGrid, you c
 ```js
 const tronWeb = new TronWeb({
     fullHost: 'https://api.trongrid.io',
+    headers: { "TRON-PRO-API-KEY": 'your api key' },
     privateKey: 'your private key'
 })
 ```
@@ -124,7 +125,7 @@ const tronWeb = new TronWeb({
 For retro-compatibility, though, you can continue to use the old approach, where any parameter is passed separately:
 ```js
 const tronWeb = new TronWeb(fullNode, solidityNode, eventServer, privateKey)
-
+tronWeb.setHeader({ "TRON-PRO-API-KEY": 'your api key' });
 ```
 
 If you are, for example, using a server as full and solidity node, and another server for the events, you can set it as:
@@ -167,6 +168,23 @@ In order to contribute you can
 * push your changes and open a pull request
 
 ## Recent History
+
+__3.2.6__
+- Add setHeader function
+
+__3.2.5__
+- Set feeLimit max value as 5000 TRX
+
+__3.2.4__
+- Set feeLimit default value as 150 TRX
+
+__3.2.3__
+- Support triggerSmartContract function with empty character functionSelector and empty array parameters
+- The triggerSmartContract function Support for anonymous contract parameter incoming
+
+__3.2.2__
+- Set feeLimit default value as 40 TRX
+- The `createToken` method supports 0 in its precision
 
 __3.1.0__
 - Update `elliptic` to the latest version 6.5.3
